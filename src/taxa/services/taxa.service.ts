@@ -14,7 +14,7 @@ export class TaxaService {
     return await this.taxaRepository.find();
   }
 
-  async findBySalesForceId(categoria: string): Promise<Taxa[]> {
+  async findByCategoria(categoria: string): Promise<Taxa[]> {
     return await this.taxaRepository.find({
       where: { categoria: categoria },
     });
