@@ -11,11 +11,11 @@ export class TaxaService {
   ) {}
 
   async findAll(): Promise<Taxa[]> {
-    return await this.taxaRepository.find();
+    return  this.taxaRepository.find();
   }
 
   async findByCategoria(categoria: string): Promise<Taxa[]> {
-    return await this.taxaRepository.find({
+    return  this.taxaRepository.find({
       where: { categoria: categoria },
     });
   }
