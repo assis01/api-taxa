@@ -9,17 +9,7 @@ import { TaxaModule } from '../taxa/taxa.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'db-taxa',
-      entities: [Taxa],
-      synchronize: true,
-      autoLoadEntities: true,
-    }),
+    TypeOrmModule.forRoot(),
     TaxaModule,
   ],
   controllers: [],
