@@ -1,19 +1,24 @@
-FROM node:14 as builder
+FROM node:14-alpine as build
 
-WORKDIR /app
+WORKDIR /usr/app/src
+
+COPY package*.json ./
+RUN npm i
 
 COPY . .
 
-RUN npm i && npm run build
+RUN npm run build
 
-FROM node:alpine
-
-WORKDIR /app
-
-COPY --from=builder /app/dist ./dist
-
-RUN npm i --production
+FROM node:14-alpine as production
 
 EXPOSE 3000
+
+WORKDIR /usr/app
+
+COPY package*.json ./
+
+RUN npm i --only=prod
+
+COPY --from=build /usr/app/src/dist ./dist
 
 CMD [ "npm", "run", "start:prod" ]
