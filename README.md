@@ -57,21 +57,6 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-## Running the migrations
-
-```bash
-# Run the migration
-$ npm run migration:run
-
-# Reverse a migration step
-$ npm run migration:rollback
-
-# Creates an empty migration file
-$ npm run migration:create $NAME
-
-# Generates the migration file
-$ npm run migration:generate $NAME
-
 
 ## Support
 
